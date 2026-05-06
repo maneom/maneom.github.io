@@ -23,44 +23,36 @@ h1, h2 {
     letter-spacing: 0.5px;
 }
 
-/* SUBTLE FUTURISTIC GRID */
+/* ASTEROID BACKGROUND */
 body::before {
     content: "";
     position: fixed;
+    top: 0;
+    left: 0;
     width: 200%;
     height: 200%;
-    background-image: 
-        radial-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
-        linear-gradient(to right, rgba(76,161,175,0.08) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(76,161,175,0.08) 1px, transparent 1px);
-    background-size: 40px 40px, 80px 80px, 80px 80px;
-    animation: moveGrid 35s linear infinite;
-    z-index: -2;
-}
 
-/* ASTEROID PARTICLES */
-body::after {
-    content: "";
-    position: fixed;
-    width: 200%;
-    height: 200%;
     background:
-        radial-gradient(circle, rgba(76,161,175,0.5) 2px, transparent 3px),
-        radial-gradient(circle, rgba(52,152,219,0.4) 1px, transparent 2px);
-    background-size: 150px 150px, 200px 200px;
-    animation: asteroidMove 80s linear infinite;
-    opacity: 0.2;
+        radial-gradient(circle, rgba(76,161,175,0.8) 2px, transparent 4px),
+        radial-gradient(circle, rgba(52,152,219,0.7) 3px, transparent 5px),
+        radial-gradient(circle, rgba(0,198,255,0.6) 1.5px, transparent 3px);
+
+    background-size: 180px 180px, 250px 250px, 120px 120px;
+
+    animation: asteroidMove 60s linear infinite;
+
+    opacity: 0.35;
     z-index: -1;
 }
 
+/* ASTEROID MOVEMENT */
 @keyframes asteroidMove {
-    from { transform: translate(0,0); }
-    to { transform: translate(-400px, -300px); }
-}
-
-@keyframes moveGrid {
-    0% { transform: translate(0,0); }
-    100% { transform: translate(-200px, -200px); }
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-300px, -200px);
+    }
 }
 
 /* HEADER */
@@ -73,7 +65,7 @@ header {
     overflow: hidden;
 }
 
-/* subtle glow line */
+/* GLOW LINE */
 header::after {
     content: "";
     position: absolute;
@@ -128,7 +120,7 @@ section:nth-of-type(4) { animation-delay: 0.8s; }
 section:nth-of-type(5) { animation-delay: 1s; }
 section:nth-of-type(6) { animation-delay: 1.2s; }
 
-/* HOVER */
+/* HOVER EFFECT */
 section:hover {
     transform: translateY(-6px) scale(1.01);
     box-shadow: 0 10px 30px rgba(76,161,175,0.25);
@@ -141,7 +133,7 @@ h2 {
     position: relative;
 }
 
-/* underline animation */
+/* UNDERLINE ANIMATION */
 h2::after {
     content: "";
     position: absolute;
@@ -179,7 +171,7 @@ a {
     position: relative;
 }
 
-/* animated underline */
+/* LINK UNDERLINE ANIMATION */
 a::after {
     content: "";
     position: absolute;
