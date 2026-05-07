@@ -344,101 +344,87 @@ footer{
 }
 
 /* =========================================
-   CLEAN & UNIFIED MOBILE RESPONSIVE
+   PREMIUM MOBILE OPTIMIZATION
    ========================================= */
 @media screen and (max-width: 768px) {
     
-    /* Prevent horizontal shaking and side-scrolling */
     html, body {
         overflow-x: hidden;
         width: 100%;
     }
 
-    /* 1. FIXING THE ASTEROIDS: Subtle & contained */
-    body::before {
-        width: 100vw;
-        height: 100vh;
-        background-size: 60px 60px, 90px 90px, 50px 50px;
-        opacity: 0.25;
-        animation: asteroidMoveMobile 60s linear infinite;
-    }
-
-    @keyframes asteroidMoveMobile {
-        0% { transform: translate(0, 0); }
-        100% { transform: translate(-20px, -20px); }
-    }
-
-    /* 2. THE NAVBAR: Forcing a single clean layout */
+    /* 1. CLEANER NAVIGATION: Force one row if possible */
     nav {
-        padding: 8px 5px;
+        padding: 12px 5px;
     }
 
     nav ul {
-        display: flex;
+        gap: 8px; /* Tighter gap */
         justify-content: center;
-        gap: 6px 10px; /* Tighter gap to keep links on fewer lines */
-        padding: 0;
     }
 
     nav a {
-        font-size: 12px; /* Slightly smaller for better fit */
-        font-weight: 500;
+        font-size: 11px; /* Slightly smaller to fit everything */
+        text-transform: uppercase;
+        letter-spacing: 0px;
     }
 
-    /* 3. THE HEADER: Bringing the content together */
+    /* 2. THE HEADER: Professional Gradient & Height */
     header {
-        padding: 40px 20px 60px 20px; /* Extra bottom padding for the overlap */
+        padding: 50px 15px 80px 15px; /* Tall bottom padding to accommodate the card */
+        background: linear-gradient(135deg, #1e2a38, #3a7a85); /* Slightly deeper colors */
     }
 
     header h1 {
-        font-size: 1.5rem; /* Better scale for phones */
-        margin-bottom: 5px;
+        font-size: 1.3rem; /* Scaled down for elegance */
+        margin-bottom: 4px;
     }
 
     header p {
-        font-size: 0.85rem;
-        max-width: 280px;
-        margin: 5px auto 0 auto;
+        font-size: 0.8rem;
+        opacity: 0.8;
+        line-height: 1.3;
     }
 
-    /* Hide the glow line on mobile to keep it minimal */
-    header::after {
-        display: none;
-    }
-
-    /* 4. THE SECTION CARD: The "Overlap" Effect */
+    /* 3. THE CARD: The "Floating Overlap" Effect */
     section {
-        width: 92%;
-        margin: -35px auto 20px auto; /* Pulls the card UP into the header */
-        padding: 20px;
-        border-radius: 12px;
+        width: 90%;
+        max-width: 400px;
+        margin: -50px auto 30px auto; /* This creates the professional overlap */
         
-        /* Force visibility (cancels desktop animations) */
+        padding: 24px;
+        background: #ffffff;
+        border-radius: 16px; /* Rounder corners for a modern feel */
+        
+        /* Modern subtle shadow */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        
+        /* Ensure it shows up instantly */
         opacity: 1 !important;
         transform: translateY(0) !important;
         animation: none !important;
-
-        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     }
 
-    /* 5. TYPOGRAPHY: More readable proportions */
+    /* 4. CONTENT STYLING */
     h2 {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+        color: #2c3e50;
         margin-bottom: 10px;
+        border-left: 3px solid #4ca1af; /* Modern accent instead of underline */
+        padding-left: 10px;
     }
-
-    h2::after {
-        width: 30px; /* Smaller underline */
-    }
+    
+    h2::after { display: none; } /* Remove the old underline style */
 
     p, li {
-        font-size: 14px;
+        font-size: 13.5px;
+        color: #555;
         line-height: 1.6;
     }
 
-    /* 6. FOOTER */
-    footer {
-        padding: 15px;
-        font-size: 13px;
+    /* 5. BACKGROUND DOTS: Make them very subtle */
+    body::before {
+        background-size: 60px 60px, 90px 90px, 45px 45px;
+        opacity: 0.15;
     }
 }
