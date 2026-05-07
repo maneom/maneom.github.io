@@ -344,95 +344,70 @@ footer{
 }
 
 /* =========================================
-   FINAL POLISHED MOBILE FIX
+   MOBILE ONLY: Overlap & Spacing
    ========================================= */
 @media screen and (max-width: 768px) {
     
-    html, body {
-        overflow-x: hidden;
-        width: 100%;
-    }
-
-    /* 1. NAVBAR: Spacing out the links so they don't touch */
-    nav {
-        padding: 15px 5px;
-    }
-
+    /* 1. NAVBAR: Fix spacing for small screens */
     nav ul {
-        display: flex;
-        flex-wrap: wrap; 
+        gap: 8px 12px;
+        padding: 10px 5px;
         justify-content: center;
-        gap: 10px 15px; /* Adds vertical gap between rows if they wrap */
-        padding: 0;
     }
 
     nav a {
         font-size: 11px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        color: #2c3e50;
     }
 
-    /* 2. HEADER: Fixing visibility and centering */
+    /* 2. HEADER: Increase bottom padding to create room for overlap */
     header {
-        padding: 60px 20px 100px 20px; /* Increased bottom padding for overlap */
-        background: linear-gradient(135deg, #2c3e50, #4ca1af);
-        text-align: center;
+        padding: 50px 20px 80px 20px; 
     }
 
     header h1 {
         font-size: 1.4rem;
-        color: #ffffff; /* Explicitly white */
-        margin-bottom: 10px;
+        color: #ffffff;
     }
 
-    /* FIX: Making the "missing" info visible */
     header p {
         font-size: 0.85rem;
-        color: rgba(255, 255, 255, 0.9) !important; /* Forces text to be white/light */
-        line-height: 1.5;
-        max-width: 90%;
-        margin: 5px auto;
+        color: rgba(255, 255, 255, 0.9);
+        display: block; /* Ensures info below name stays visible */
     }
 
-    /* 3. SECTION CARD: The modern overlap */
+    /* 3. MOBILE OVERLAP: Only triggers on screens < 768px */
     section {
-        width: 90%;
-        margin: -60px auto 30px auto; /* Pulls the card 60px into the header */
-        padding: 25px;
-        background: #ffffff;
+        width: 92%;
+        margin: -50px auto 30px auto !important; /* Pulls card UP only on mobile */
+        padding: 20px;
         border-radius: 15px;
-        border: none;
+        position: relative;
+        z-index: 10;
+        background: #fff;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
-        
-        /* Force display */
+        /* Reset any desktop animations that might hide the card */
         opacity: 1 !important;
         transform: translateY(0) !important;
         animation: none !important;
     }
 
-    /* 4. TYPOGRAPHY: Elegant accents */
     h2 {
         font-size: 1.2rem;
-        color: #2c3e50;
-        margin-bottom: 15px;
         border-left: 4px solid #4ca1af;
-        padding-left: 12px;
+        padding-left: 10px;
     }
-
-    /* Hide old underline style */
+    
     h2::after { display: none; }
+}
 
-    p, li {
-        font-size: 14px;
-        color: #444;
-        line-height: 1.6;
-    }
-
-    /* 5. BACKGROUND: Subtlest dots */
-    body::before {
-        opacity: 0.1;
-        background-size: 80px 80px;
+/* =========================================
+   DESKTOP FIX: Ensure NO overlap on large screens
+   ========================================= */
+@media screen and (min-width: 769px) {
+    section {
+        margin: 40px auto !important; /* Forces normal spacing on desktop */
+        width: 85%;
+        max-width: 900px;
     }
 }
