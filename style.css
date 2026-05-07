@@ -416,3 +416,76 @@ footer{
         padding: 15px;
     }
 }
+
+
+
+/* MOBILE RESPONSIVE */
+@media screen and (max-width: 768px) {
+    /* Stop the page from sliding sideways */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    /* Fix the background so it doesn't create extra width */
+    body::before {
+        width: 100vw;
+        height: 100vh;
+        background-size: 80px 80px, 120px 120px, 70px 70px;
+        animation: asteroidMoveMobile 40s linear infinite;
+    }
+
+    @keyframes asteroidMoveMobile {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(-30px, -30px); }
+    }
+
+    /* NAVBAR: Stack links neatly */
+    nav {
+        padding: 10px;
+    }
+
+    nav ul {
+        gap: 15px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    /* HEADER: Responsive Text */
+    header {
+        padding: 40px 15px;
+    }
+
+    header h1 {
+        font-size: 1.6rem;
+    }
+
+    header p {
+        font-size: 0.9rem;
+    }
+
+    /* SECTION CARDS: Maximize mobile space */
+    section {
+        width: 92%;
+        margin: 15px auto;
+        padding: 18px;
+        /* Ensure content is visible immediately on mobile */
+        opacity: 1;
+        transform: translateY(0);
+        animation: none;
+    }
+
+    section:hover {
+        transform: translateY(-2px); /* Subtle lift for touch */
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    p, li {
+        font-size: 14px;
+    }
+}
