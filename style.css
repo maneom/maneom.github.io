@@ -343,57 +343,76 @@ footer{
     }
 }
 
-/* MOBILE RESPONSIVE */
-@media (max-width:768px){
-
-    /* NAVBAR */
-    nav{
-        padding:12px 10px;
+/* MOBILE RESPONSIVE UPDATES */
+@media (max-width: 768px) {
+    /* Prevent horizontal scroll from the asteroid background */
+    body {
+        overflow-x: hidden;
     }
 
-    nav ul{
-        gap:14px;
+    /* Scale down the asteroid background so it doesn't look like giant blobs */
+    body::before {
+        background-size: 80px 80px, 110px 110px, 60px 60px;
+        width: 300%; /* Extra width to ensure coverage during animation */
     }
 
-    nav a{
-        font-size:14px;
+    /* NAVBAR: Stack items if they get too crowded */
+    nav {
+        padding: 10px 5px;
     }
 
-    /* HEADER */
-    header{
-        padding:50px 15px;
+    nav ul {
+        gap: 12px;
+        padding: 0 10px;
     }
 
-    header h1{
-        font-size:1.8rem;
-        line-height:1.3;
+    nav a {
+        font-size: 13px;
+        letter-spacing: 0.3px;
     }
 
-    header p{
-        font-size:14px;
-        margin-top:10px;
+    /* HEADER: Adjust typography for smaller screens */
+    header {
+        padding: 40px 15px;
     }
 
-    /* SECTION */
-    section{
-        width:92%;
-        padding:20px;
-        margin:20px auto;
+    header h1 {
+        font-size: 1.6rem;
+        line-height: 1.2;
     }
 
-    /* HEADING */
-    h2{
-        font-size:1.5rem;
+    header p {
+        font-size: 0.9rem;
+        padding: 0 10px;
     }
 
-    /* TEXT */
-    p,li{
-        font-size:15px;
+    /* SECTION CARDS: Use more screen real estate */
+    section {
+        width: 95%; /* Increased from 92% to use space better */
+        margin: 15px auto;
+        padding: 18px;
+        transform: translateY(20px); /* Smaller entry animation for mobile performance */
+    }
+
+    /* Adjust hover effect - touch screens don't have true hover, 
+       so we keep the transform minimal to avoid "jumpy" scrolling */
+    section:hover {
+        transform: translateY(-3px);
+    }
+
+    /* TYPOGRAPHY */
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    p, li {
+        font-size: 14px;
+        line-height: 1.5;
     }
 
     /* FOOTER */
-    footer{
-        font-size:14px;
-        padding:16px;
+    footer {
+        font-size: 13px;
+        padding: 15px;
     }
 }
