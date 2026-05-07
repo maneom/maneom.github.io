@@ -343,149 +343,102 @@ footer{
     }
 }
 
-/* MOBILE RESPONSIVE UPDATES */
-@media (max-width: 768px) {
-    /* Prevent horizontal scroll from the asteroid background */
-    body {
-        overflow-x: hidden;
-    }
-
-    /* Scale down the asteroid background so it doesn't look like giant blobs */
-    body::before {
-        background-size: 80px 80px, 110px 110px, 60px 60px;
-        width: 300%; /* Extra width to ensure coverage during animation */
-    }
-
-    /* NAVBAR: Stack items if they get too crowded */
-    nav {
-        padding: 10px 5px;
-    }
-
-    nav ul {
-        gap: 12px;
-        padding: 0 10px;
-    }
-
-    nav a {
-        font-size: 13px;
-        letter-spacing: 0.3px;
-    }
-
-    /* HEADER: Adjust typography for smaller screens */
-    header {
-        padding: 40px 15px;
-    }
-
-    header h1 {
-        font-size: 1.6rem;
-        line-height: 1.2;
-    }
-
-    header p {
-        font-size: 0.9rem;
-        padding: 0 10px;
-    }
-
-    /* SECTION CARDS: Use more screen real estate */
-    section {
-        width: 95%; /* Increased from 92% to use space better */
-        margin: 15px auto;
-        padding: 18px;
-        transform: translateY(20px); /* Smaller entry animation for mobile performance */
-    }
-
-    /* Adjust hover effect - touch screens don't have true hover, 
-       so we keep the transform minimal to avoid "jumpy" scrolling */
-    section:hover {
-        transform: translateY(-3px);
-    }
-
-    /* TYPOGRAPHY */
-    h2 {
-        font-size: 1.3rem;
-    }
-
-    p, li {
-        font-size: 14px;
-        line-height: 1.5;
-    }
-
-    /* FOOTER */
-    footer {
-        font-size: 13px;
-        padding: 15px;
-    }
-}
-
-
-
-/* MOBILE RESPONSIVE */
+/* =========================================
+   CLEAN & UNIFIED MOBILE RESPONSIVE
+   ========================================= */
 @media screen and (max-width: 768px) {
-    /* Stop the page from sliding sideways */
+    
+    /* Prevent horizontal shaking and side-scrolling */
     html, body {
         overflow-x: hidden;
         width: 100%;
     }
 
-    /* Fix the background so it doesn't create extra width */
+    /* 1. FIXING THE ASTEROIDS: Subtle & contained */
     body::before {
         width: 100vw;
         height: 100vh;
-        background-size: 80px 80px, 120px 120px, 70px 70px;
-        animation: asteroidMoveMobile 40s linear infinite;
+        background-size: 60px 60px, 90px 90px, 50px 50px;
+        opacity: 0.25;
+        animation: asteroidMoveMobile 60s linear infinite;
     }
 
     @keyframes asteroidMoveMobile {
         0% { transform: translate(0, 0); }
-        100% { transform: translate(-30px, -30px); }
+        100% { transform: translate(-20px, -20px); }
     }
 
-    /* NAVBAR: Stack links neatly */
+    /* 2. THE NAVBAR: Forcing a single clean layout */
     nav {
-        padding: 10px;
+        padding: 8px 5px;
     }
 
     nav ul {
-        gap: 15px;
+        display: flex;
+        justify-content: center;
+        gap: 6px 10px; /* Tighter gap to keep links on fewer lines */
+        padding: 0;
     }
 
     nav a {
-        font-size: 13px;
+        font-size: 12px; /* Slightly smaller for better fit */
+        font-weight: 500;
     }
 
-    /* HEADER: Responsive Text */
+    /* 3. THE HEADER: Bringing the content together */
     header {
-        padding: 40px 15px;
+        padding: 40px 20px 60px 20px; /* Extra bottom padding for the overlap */
     }
 
     header h1 {
-        font-size: 1.6rem;
+        font-size: 1.5rem; /* Better scale for phones */
+        margin-bottom: 5px;
     }
 
     header p {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        max-width: 280px;
+        margin: 5px auto 0 auto;
     }
 
-    /* SECTION CARDS: Maximize mobile space */
+    /* Hide the glow line on mobile to keep it minimal */
+    header::after {
+        display: none;
+    }
+
+    /* 4. THE SECTION CARD: The "Overlap" Effect */
     section {
         width: 92%;
-        margin: 15px auto;
-        padding: 18px;
-        /* Ensure content is visible immediately on mobile */
-        opacity: 1;
-        transform: translateY(0);
-        animation: none;
+        margin: -35px auto 20px auto; /* Pulls the card UP into the header */
+        padding: 20px;
+        border-radius: 12px;
+        
+        /* Force visibility (cancels desktop animations) */
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        animation: none !important;
+
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     }
 
-    section:hover {
-        transform: translateY(-2px); /* Subtle lift for touch */
-    }
-
+    /* 5. TYPOGRAPHY: More readable proportions */
     h2 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    h2::after {
+        width: 30px; /* Smaller underline */
     }
 
     p, li {
         font-size: 14px;
+        line-height: 1.6;
+    }
+
+    /* 6. FOOTER */
+    footer {
+        padding: 15px;
+        font-size: 13px;
     }
 }
